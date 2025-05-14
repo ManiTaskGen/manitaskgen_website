@@ -1,5 +1,5 @@
 {
-  "name": "gait_in_eight_website",
+  "name": "embodiment-scaling-laws",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,13 +8,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nico-bohlinger/gait_in_eight_website.git"
+    "url": "git+https://github.com/embodiment-scaling-laws/embodiment-scaling-laws.github.io.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/nico-bohlinger/gait_in_eight_website/issues"
+    "url": "https://github.com/embodiment-scaling-laws/embodiment-scaling-laws.github.io/issues"
   },
-  "homepage": "https://github.com/nico-bohlinger/gait_in_eight_website#readme"
+  "homepage": "https://github.com/embodiment-scaling-laws/embodiment-scaling-laws.github.io#readme"
 }
