@@ -183,7 +183,7 @@ p {
 }
 
 .section-gif {
-    width: 10vw;
+    width: 9vw;
     margin-bottom: -1em;
 }
 
@@ -191,7 +191,7 @@ p {
     font-size: large;
     font-weight: bold;
     align-content: center;
-    width: 10vw;
+    width: 9vw;
     text-align: center;
 }
 
@@ -202,7 +202,7 @@ p {
 .section-gif-header {
     font-size: large;
     font-weight: bold;
-    width: 10vw;
+    width: 9vw;
     text-align: center;
     margin-bottom: 1em;
 }
