@@ -212,6 +212,43 @@ p {
     max-width: 100%;
 }
 
+.section-deployment-video-container {
+    width: 100%;
+}
+
+.section-deployment-video-container-header {
+    font-size: larger;
+    font-weight: bold;
+    text-align: center;
+}
+
+.section-deployment-video-row {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 0em;
+}
+
+.section-deployment-video-row:last-child {
+    margin-top: 0.5em;
+}
+
+.section-deployment-video-container:last-child  {
+    margin-top: 3em;
+}
+
+.deployment-video-header {
+    font-size: large;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 0.5em;
+}
+
+.deployment-video {
+    margin-top: 0.5em;
+    max-width: 30vw;
+}
+
 .youtube-iframe {
     margin-top: 1em;
     width: 940.8px;
