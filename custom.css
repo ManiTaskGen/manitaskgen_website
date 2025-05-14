@@ -40,7 +40,7 @@ p {
     text-decoration: none;
 }
 
-.ack_author {
+.ack-author {
     text-decoration: none;
 }
 
@@ -178,6 +178,35 @@ p {
     margin-bottom: 2em;
 }
 
+.section-gif-container {
+    display: flex;
+}
+
+.section-gif {
+    width: 10vw;
+    margin-bottom: -1em;
+}
+
+.gif-text-morphology-class{
+    font-size: large;
+    font-weight: bold;
+    align-content: center;
+    width: 10vw;
+    text-align: center;
+}
+
+.section-gif-header-container {
+    display: flex;
+}
+
+.section-gif-header {
+    font-size: large;
+    font-weight: bold;
+    width: 10vw;
+    text-align: center;
+    margin-bottom: 1em;
+}
+
 .section-video {
     margin-top: 1em;
     max-width: 100%;
@@ -185,8 +214,8 @@ p {
 
 .youtube-iframe {
     margin-top: 1em;
-    width: 672px;
-    height: 378px;
+    width: 940.8px;
+    height: 529.2px;
 }
 
 .citation-container {
