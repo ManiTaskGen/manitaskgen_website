@@ -1,0 +1,636 @@
+<html class="fontawesome-i2svg-active fontawesome-i2svg-complete"><head>
+  <meta charset="utf-8">
+  <meta name="description" content="Guiding Long-Horizon Task and Motion Planning with Vision Language Models">
+  <meta name="keywords" content="VLM, Task and Motion Planning, Manipulation Planning">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VLM-TAMP</title>
+
+  <style type="text/css">svg:not(:root).svg-inline--fa{overflow:visible}.svg-inline--fa{display:inline-block;font-size:inherit;height:1em;overflow:visible;vertical-align:-.125em}.svg-inline--fa.fa-lg{vertical-align:-.225em}.svg-inline--fa.fa-w-1{width:.0625em}.svg-inline--fa.fa-w-2{width:.125em}.svg-inline--fa.fa-w-3{width:.1875em}.svg-inline--fa.fa-w-4{width:.25em}.svg-inline--fa.fa-w-5{width:.3125em}.svg-inline--fa.fa-w-6{width:.375em}.svg-inline--fa.fa-w-7{width:.4375em}.svg-inline--fa.fa-w-8{width:.5em}.svg-inline--fa.fa-w-9{width:.5625em}.svg-inline--fa.fa-w-10{width:.625em}.svg-inline--fa.fa-w-11{width:.6875em}.svg-inline--fa.fa-w-12{width:.75em}.svg-inline--fa.fa-w-13{width:.8125em}.svg-inline--fa.fa-w-14{width:.875em}.svg-inline--fa.fa-w-15{width:.9375em}.svg-inline--fa.fa-w-16{width:1em}.svg-inline--fa.fa-w-17{width:1.0625em}.svg-inline--fa.fa-w-18{width:1.125em}.svg-inline--fa.fa-w-19{width:1.1875em}.svg-inline--fa.fa-w-20{width:1.25em}.svg-inline--fa.fa-pull-left{margin-right:.3em;width:auto}.svg-inline--fa.fa-pull-right{margin-left:.3em;width:auto}.svg-inline--fa.fa-border{height:1.5em}.svg-inline--fa.fa-li{width:2em}.svg-inline--fa.fa-fw{width:1.25em}.fa-layers svg.svg-inline--fa{bottom:0;left:0;margin:auto;position:absolute;right:0;top:0}.fa-layers{display:inline-block;height:1em;position:relative;text-align:center;vertical-align:-.125em;width:1em}.fa-layers svg.svg-inline--fa{-webkit-transform-origin:center center;transform-origin:center center}.fa-layers-counter,.fa-layers-text{display:inline-block;position:absolute;text-align:center}.fa-layers-text{left:50%;top:50%;-webkit-transform:translate(-50%,-50%);transform:translate(-50%,-50%);-webkit-transform-origin:center center;transform-origin:center center}.fa-layers-counter{background-color:#ff253a;border-radius:1em;-webkit-box-sizing:border-box;box-sizing:border-box;color:#fff;height:1.5em;line-height:1;max-width:5em;min-width:1.5em;overflow:hidden;padding:.25em;right:0;text-overflow:ellipsis;top:0;-webkit-transform:scale(.25);transform:scale(.25);-webkit-transform-origin:top right;transform-origin:top right}.fa-layers-bottom-right{bottom:0;right:0;top:auto;-webkit-transform:scale(.25);transform:scale(.25);-webkit-transform-origin:bottom right;transform-origin:bottom right}.fa-layers-bottom-left{bottom:0;left:0;right:auto;top:auto;-webkit-transform:scale(.25);transform:scale(.25);-webkit-transform-origin:bottom left;transform-origin:bottom left}.fa-layers-top-right{right:0;top:0;-webkit-transform:scale(.25);transform:scale(.25);-webkit-transform-origin:top right;transform-origin:top right}.fa-layers-top-left{left:0;right:auto;top:0;-webkit-transform:scale(.25);transform:scale(.25);-webkit-transform-origin:top left;transform-origin:top left}.fa-lg{font-size:1.3333333333em;line-height:.75em;vertical-align:-.0667em}.fa-xs{font-size:.75em}.fa-sm{font-size:.875em}.fa-1x{font-size:1em}.fa-2x{font-size:2em}.fa-3x{font-size:3em}.fa-4x{font-size:4em}.fa-5x{font-size:5em}.fa-6x{font-size:6em}.fa-7x{font-size:7em}.fa-8x{font-size:8em}.fa-9x{font-size:9em}.fa-10x{font-size:10em}.fa-fw{text-align:center;width:1.25em}.fa-ul{list-style-type:none;margin-left:2.5em;padding-left:0}.fa-ul>li{position:relative}.fa-li{left:-2em;position:absolute;text-align:center;width:2em;line-height:inherit}.fa-border{border:solid .08em #eee;border-radius:.1em;padding:.2em .25em .15em}.fa-pull-left{float:left}.fa-pull-right{float:right}.fa.fa-pull-left,.fab.fa-pull-left,.fal.fa-pull-left,.far.fa-pull-left,.fas.fa-pull-left{margin-right:.3em}.fa.fa-pull-right,.fab.fa-pull-right,.fal.fa-pull-right,.far.fa-pull-right,.fas.fa-pull-right{margin-left:.3em}.fa-spin{-webkit-animation:fa-spin 2s infinite linear;animation:fa-spin 2s infinite linear}.fa-pulse{-webkit-animation:fa-spin 1s infinite steps(8);animation:fa-spin 1s infinite steps(8)}@-webkit-keyframes fa-spin{0%{-webkit-transform:rotate(0);transform:rotate(0)}100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}@keyframes fa-spin{0%{-webkit-transform:rotate(0);transform:rotate(0)}100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}.fa-rotate-90{-webkit-transform:rotate(90deg);transform:rotate(90deg)}.fa-rotate-180{-webkit-transform:rotate(180deg);transform:rotate(180deg)}.fa-rotate-270{-webkit-transform:rotate(270deg);transform:rotate(270deg)}.fa-flip-horizontal{-webkit-transform:scale(-1,1);transform:scale(-1,1)}.fa-flip-vertical{-webkit-transform:scale(1,-1);transform:scale(1,-1)}.fa-flip-both,.fa-flip-horizontal.fa-flip-vertical{-webkit-transform:scale(-1,-1);transform:scale(-1,-1)}:root .fa-flip-both,:root .fa-flip-horizontal,:root .fa-flip-vertical,:root .fa-rotate-180,:root .fa-rotate-270,:root .fa-rotate-90{-webkit-filter:none;filter:none}.fa-stack{display:inline-block;height:2em;position:relative;width:2.5em}.fa-stack-1x,.fa-stack-2x{bottom:0;left:0;margin:auto;position:absolute;right:0;top:0}.svg-inline--fa.fa-stack-1x{height:1em;width:1.25em}.svg-inline--fa.fa-stack-2x{height:2em;width:2.5em}.fa-inverse{color:#fff}.sr-only{border:0;clip:rect(0,0,0,0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px}.sr-only-focusable:active,.sr-only-focusable:focus{clip:auto;height:auto;margin:0;overflow:visible;position:static;width:auto}.svg-inline--fa .fa-primary{fill:var(--fa-primary-color,currentColor);opacity:1;opacity:var(--fa-primary-opacity,1)}.svg-inline--fa .fa-secondary{fill:var(--fa-secondary-color,currentColor);opacity:.4;opacity:var(--fa-secondary-opacity,.4)}.svg-inline--fa.fa-swap-opacity .fa-primary{opacity:.4;opacity:var(--fa-secondary-opacity,.4)}.svg-inline--fa.fa-swap-opacity .fa-secondary{opacity:1;opacity:var(--fa-primary-opacity,1)}.svg-inline--fa mask .fa-primary,.svg-inline--fa mask .fa-secondary{fill:#000}.fad.fa-inverse{color:#fff}</style><link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="stylesheet" href="./static/css/chat.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script><link rel="stylesheet" href="chrome-extension://mbklgpngoohbbagagdfoccaclpdhgihd/css/index.css">
+  <script defer="" src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<!-- <body onload="updateResultVideo();"> -->
+
+
+<body><nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="https://keunhong.com">
+      <span class="icon">
+          <svg class="svg-inline--fa fa-home fa-w-18" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="home" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg=""><path fill="currentColor" d="M280.37 148.26L96 300.11V464a16 16 0 0 0 16 16l112.06-.29a16 16 0 0 0 15.92-16V368a16 16 0 0 1 16-16h64a16 16 0 0 1 16 16v95.64a16 16 0 0 0 16 16.05L464 480a16 16 0 0 0 16-16V300L295.67 148.26a12.19 12.19 0 0 0-15.3 0zM571.6 251.47L488 182.56V44.05a12 12 0 0 0-12-12h-56a12 12 0 0 0-12 12v72.61L318.47 43a48 48 0 0 0-61 0L4.34 251.47a12 12 0 0 0-1.6 16.9l25.5 31A12 12 0 0 0 45.15 301l235.22-193.74a12.19 12.19 0 0 1 15.3 0L530.9 301a12 12 0 0 0 16.9-1.6l25.5-31a12 12 0 0 0-1.7-16.93z"></path></svg><!-- <i class="fas fa-home"></i> Font Awesome fontawesome.com -->
+      </span>
+      </a>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          More Research
+        </a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="https://diffusion-ccsp.github.io">
+            DiffusionCCSP
+          </a>
+          <a class="navbar-item" href="https://piginet.github.io/">
+            PIGINet
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+<section class="hero" style="background-color: #ffffff; z-index:-10">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Guiding Long-Horizon Task and Motion Planning <br> with Vision Language Models</h1>
+          <h3 class="title is-4 conference-authors">
+            ICRA 2025
+            <!-- <a target="_blank" href="https://2025.ieee-icra.org/"></a> -->
+          </h3>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a target="_blank" href="https://zt-yang.com/">Zhutian Yang</a><sup>1, 2</sup>,</span>
+            <span class="author-block">
+              <a target="_blank" href="http://web.mit.edu/caelan/www/">Caelan Garrett</a><sup>2</sup>,</span>
+            <span class="author-block">
+              <a target="_blank" href="http://people.csail.mit.edu/tlp/">Tomás Lozano-Pérez</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a target="_blank" href="http://people.csail.mit.edu/lpk/">Leslie Kaelbling</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a target="_blank" href="https://homes.cs.washington.edu/~fox/">Dieter Fox</a><sup>2</sup>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>MIT,</span>
+            <span class="author-block"><sup>2</sup>NVIDIA</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a target="_blank" href="http://arxiv.org/abs/2410.02193" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <svg class="svg-inline--fa fa-file-pdf fa-w-12" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="file-pdf" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" data-fa-i2svg=""><path fill="currentColor" d="M181.9 256.1c-5-16-4.9-46.9-2-46.9 8.4 0 7.6 36.9 2 46.9zm-1.7 47.2c-7.7 20.2-17.3 43.3-28.4 62.7 18.3-7 39-17.2 62.9-21.9-12.7-9.6-24.9-23.4-34.5-40.8zM86.1 428.1c0 .8 13.2-5.4 34.9-40.2-6.7 6.3-29.1 24.5-34.9 40.2zM248 160h136v328c0 13.3-10.7 24-24 24H24c-13.3 0-24-10.7-24-24V24C0 10.7 10.7 0 24 0h200v136c0 13.2 10.8 24 24 24zm-8 171.8c-20-12.2-33.3-29-42.7-53.8 4.5-18.5 11.6-46.6 6.2-64.2-4.7-29.4-42.4-26.5-47.8-6.8-5 18.3-.4 44.1 8.1 77-11.6 27.6-28.7 64.6-40.8 85.8-.1 0-.1.1-.2.1-27.1 13.9-73.6 44.5-54.5 68 5.6 6.9 16 10 21.5 10 17.9 0 35.7-18 61.1-61.8 25.8-8.5 54.1-19.1 79-23.2 21.7 11.8 47.1 19.5 64 19.5 29.2 0 31.2-32 19.7-43.4-13.9-13.6-54.3-9.7-73.6-7.2zM377 105L279 7c-4.5-4.5-10.6-7-17-7h-6v128h128v-6.1c0-6.3-2.5-12.4-7-16.9zm-74.1 255.3c4.1-2.7-2.5-11.9-42.8-9 37.1 15.8 42.8 9 42.8 9z"></path></svg><!-- <i class="fas fa-file-pdf"></i> Font Awesome fontawesome.com -->
+                  </span>
+                  <span>ArXiv</span>
+                </a>
+              </span>
+
+            <span class="link-block">
+              <a target="_blank" href="https://www.youtube.com/watch?v=9T1z9KQ8wwA&amp;ab_channel=ZhutianYang" class="external-link button is-normal is-rounded is-dark">
+                <span class="icon">
+                    <svg class="svg-inline--fa fa-youtube fa-w-18" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="youtube" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg=""><path fill="currentColor" d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"></path></svg><!-- <i class="fab fa-youtube"></i> Font Awesome fontawesome.com -->
+                </span>
+                <span>Video</span>
+              </a>
+            </span>
+
+            <!-- Code Link.  -->
+            <span class="link-block">
+              <a target="_blank" href="https://github.com/Learning-and-Intelligent-Systems/kitchen-worlds/tree/main" class="external-link button is-normal is-rounded is-dark">
+                <span class="icon">
+                    <svg class="svg-inline--fa fa-github fa-w-16" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="github" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" data-fa-i2svg=""><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg><!-- <i class="fab fa-github"></i> Font Awesome fontawesome.com -->
+                </span>
+                <span>Code</span>
+              </a>
+            </span>
+
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero" style="background-color: #ffffff; z-index:-10; margin-top: -5rem">
+  <div class="container">
+    <div class="hero-body">
+
+      <div class="video-teaser">
+        <video poster="" autoplay="" muted="" width="70%" controls="">
+          <source src="media/videos/teaser.mp4" type="video/mp4">
+        </video>
+      </div>
+
+       <div class="container" style="padding-top:2rem; padding-bottom:1.5rem">
+         <h2 class="subtitle has-text-centered">
+         VLM-TAMP is a general method for solving long-horizon manipulation planning problems, <br> combining the strengths and overcome the limitations of Task and Motion Planning &amp; Vision Language Models.
+         </h2>
+       </div>
+
+      <img src="media/figures/overview.png" class="full-image" style="width:75%;" alt="VLM-TAMP">
+
+    </div>
+  </div>
+</section>
+
+
+<section class="hero is-light" style="z-index:-10">
+  <div class="container">
+    <div class="hero-body">
+
+       <div class="container" style="margin-bottom:-1rem">
+         <h2 class="subtitle has-text-centered">
+         Vision-Language Models (VLM) can generate plausible high-level plans. <br>However, there is no guarantee that the actions predicted and grounded by VLM/LLMs <br> are <b>geometrically and kinematically feasible</b> for a <b>particular robot embodiment.</b>
+         </h2>
+         <h2 class="subtitle has-text-centered">
+         For example, when the VLM predicted step is "Place the cabbage in the pot," <br>the shortest plan for the following three robot embodiments are different:
+         </h2>
+       </div>
+
+    </div>
+  </div>
+
+
+  <table class="video-table" style="margin-bottom:4rem">
+    <tbody><tr>
+      <th>Embodiment</th>
+      <th>Dual-Arm Rummy (Long Arms)</th>
+      <th>Dual-Arm PR2 (Shorter Arms)</th>
+      <th>Single-Arm PR2</th>
+    </tr>
+    <tr style="font-family: monospace;">
+      <td>Plans</td>
+      <td>
+        pick(left-arm, cabbage)<br>
+        place(left-arm, cabbage, pot)
+      </td>
+      <td>
+        pick(left-arm, cabbage)<br>
+        push-handle(right-arm, cabbage-drawer)<br>
+        place(left-arm, cabbage, pot)
+      </td>
+      <td>
+        pick(left-arm, cabbage)<br>
+        place(left-arm, cabbage, counter)<br>
+        pick(left-arm, cabbage)<br>
+        place(left-arm, cabbage, pot)
+      </td>
+    </tr>
+    <tr style="max-height: 300px;">
+      <td>Trajectories</td>
+      <td>
+        <video class="video-embodiment" poster="" autoplay="" muted="" height="100%" controls="">
+          <source src="media/videos/embodiment_rummy_1.mp4" type="video/mp4">
+        </video>
+      </td>
+
+      <td>
+        <video class="video-embodiment" poster="" autoplay="" muted="" height="100%" controls="">
+          <source src="media/videos/embodiment_pr2_dual_arm_1.mp4" type="video/mp4">
+        </video>
+      </td>
+
+      <td>
+        <video class="video-embodiment" poster="" autoplay="" muted="" height="100%" controls=""> <!-- playbackRate=2 -->
+          <source src="media/videos/embodiment_pr2_single_arm_1.mp4" type="video/mp4">
+        </video>
+      </td>
+    </tr>
+  </tbody></table>
+</section>
+
+
+<section class="hero" style="z-index:-10">
+  <div class="container">
+    <div class="hero-body" style="padding-bottom: 0em;">
+
+       <div class="container">
+         <h2 class="subtitle has-text-centered">
+        We propose <b>VLM-TAMP</b>, a hierarchical planning algorithm that leverages a <span class="text-vlm">VLM</span> to generate <br>both semantically-meaningful and horizon-reducing subgoals that guide a <span class="text-tamp">task and motion planner</span>. <br>When a subgoal cannot be refined, the VLM is <span class="text-reprompt">queried again for replanning</span>.  
+         </h2>
+       </div>
+
+      <img src="media/figures/approach.png" class="full-image" style="width:75%; padding-top: 0.5em;" alt="VLM-TAMP">
+
+    </div>
+  </div>
+
+
+  <div class="chat-body">
+        <div class="chat-container">
+          <div class="sidebar">
+            <div class="menu">Examples</div>
+            <div class="problem-sections">
+              <div class="problem-section selected" data-content="problem1">
+                Make Chicken Soup <br><span class="sidenote">(with TAMP solutions and reprompting)</span>
+              </div>
+            </div>
+          </div>
+          <div class="chat-window">
+            <div class="chat-header">
+
+              <span>
+                VLM:
+                <select id="model-select">
+                  <option value="modelA">gpt-4o-mini</option>
+                </select>
+              </span>
+
+              <span>
+                Query Mode:
+                <select id="mode-select">
+                  <option value="modeA">Subgoals</option>
+                  <option value="modeB">Actions</option>
+                </select>
+              </span>
+
+              <span>
+                Robot:
+                <select id="robot-select">
+                  <option value="robotA">Dual-Arm PR2</option>
+                  <option value="robotB">Single-Arm PR2</option>
+                </select>
+              </span>
+              
+              <span>
+                Init:
+                <select id="env-select">
+                  <option value="envA">Open Spaces</option>
+                  <option value="envB">More Obstacles</option>
+                </select>
+              </span>
+              
+            </div>
+            <div class="chat-content" id="chat-content"><div class="message from-agent2" id="message-1"><img src="chats/problem1_modelA_modeA_robotA_envA/query_0.png" alt="Chat Image" style="max-width: 60%; border-radius: 8px;"><p>Plan a short sequence of intermediate goals that accomplishes the following goal: <br>
+``make chicken soup''. <br>
+<br>
+Respond with detailed but simple instructions in English. Each line must consists of only one intermediate goal, <br>
+where objects mentioned must be items from the following list:<br></p>
+
+<span class="expand-toggle-1">[expand]</span>
+<div class="hidden-text-1">
+['chicken leg', 'cabinet right door', 'cabinet left door', 'top drawer', 'cabinet', 'stove on the left', 'stove on the right', 'counter top on the left', 'counter top on the right', 'top drawer space', 'pot lid', 'pot body', 'pot bottom', 'stove knob on the right', 'stove knob on the left', 'kitchen sink', 'faucet handle', 'fridge', 'fridge door', 'fridge shelf', 'salt shaker', 'pepper shaker', 'fork'].<br>
+<br>
+Currently, you can see the following objects:<br>
+``the pot lid is on the stove on the left,<br>
+the pot body is on the counter top on the right,<br>
+the chicken leg is on the fridge shelf,<br>
+the salt shaker is in the cabinet,<br>
+the pepper shaker is in the cabinet,<br>
+the fork is in the top drawer space,<br>
+cabinet right door is partially open,<br>
+cabinet left door is partially open,<br>
+top drawer is fully closed,<br>
+fridge door is partially open,<br>
+stove knob on the right is turned off,<br>
+stove knob on the left is turned off,<br>
+faucet handle is turned off''<br>
+<br>
+</div>
+
+<p>
+You are a mobile robot with two arms. You must obey the following commonsense rules:<br>
+</p>
+
+<span class="expand-toggle-2">[expand]</span>
+<div class="hidden-text-2">
+1. You must have at least one empty hand before you can pick up an object or open or close a joint.<br>
+2. When you sprinkle or pour something into a container, there must not be objects placed on top of the container.<br>
+3. You can only take actions on objects that you can see. <br>
+4. If you cannot see an object, it may be behind a door or inside drawer.<br>
+5. If you cannot see the inside of a space, you must open its door or drawer before you can pick objects from it or place objects inside it. <br>
+<br>
+</div>
+
+<p>
+The accompanying image is a collage of two images depicting a scene with a robot in a kitchen. <br>
+There are different sets of annotations of object names with object bounding boxes drawn on the images.<br></p></div><div class="message from-agent1" id="message-2"><p>1. Open the fridge door to access the chicken leg.<br>
+2. Pick up the chicken leg from the fridge shelf with one hand.<br>
+3. Close the fridge door with the other hand.<br>
+4. Open the cabinet left door to access the salt shaker.<br>
+5. Pick up the salt shaker from the cabinet with one hand.<br>
+6. Close the cabinet left door with the other hand.<br>
+7. Open the cabinet right door to access the pepper shaker.<br>
+8. Pick up the pepper shaker from the cabinet with one hand.<br>
+9. Close the cabinet right door with the other hand.<br>
+10. Place the chicken leg into the pot body on the counter top on the right.<br>
+11. Sprinkle salt from the salt shaker into the pot body with one hand.<br>
+12. Sprinkle pepper from the pepper shaker into the pot body with the other hand.<br>
+13. Open the pot lid that is on the stove on the left.<br>
+14. Place the pot lid on top of the pot body.<br>
+15. Turn on the stove knob on the left to start cooking the chicken soup.</p></div><div class="message from-agent2" id="message-3"><p>Translate the above intermediate goals into a formal language defined by the following subgoals.<br>
+</p>
+<span class="expand-toggle-1">[expand]</span>
+<div class="hidden-text-1">
+subgoals = <br>
+[<br>
+'picked(&lt;movable&gt;)': the result of picking up &lt;movable&gt;, it contains one argument.<br>
+'in(&lt;movable&gt;, &lt;space&gt;)': the result of picking up &lt;movable&gt; and placing it inside &lt;space&gt;, it contains two arguments.<br>
+'on(&lt;movable&gt;, &lt;surface&gt;)': the result of picking up &lt;movable&gt; and placing it on &lt;surface&gt;, it contains two arguments.<br>
+'sprinkled-to(&lt;movable&gt;, &lt;region&gt;)': the result of picking up &lt;movable&gt; and sprinkling it into &lt;region&gt;, it contains two arguments.<br>
+'stirred(&lt;region&gt;, &lt;movable&gt;)': the result of picking up &lt;movable&gt; to stir &lt;region&gt;, it contains two arguments.<br>
+'chopped(&lt;movable&gt;, &lt;utensil&gt;)': the result of picking up &lt;utensil&gt; to chop &lt;movable&gt;, it contains two arguments.<br>
+'opened-door(&lt;door&gt;)': the result of opening &lt;door&gt;, it contains one argument.<br>
+'closed-door(&lt;door&gt;)': the result of closing &lt;door&gt;, it contains one argument.<br>
+'opened-drawer(&lt;drawer&gt;)': the result of closing &lt;drawer&gt;, it contains one argument.<br>
+'closed-drawer(&lt;drawer&gt;)': the result of closing &lt;drawer&gt;, it contains one argument.<br>
+'pressed(&lt;button&gt;)': the result of pressing &lt;button&gt;, it contains one argument.<br>
+'turned-on(&lt;knob&gt;)': the result of turning &lt;handle&gt; or &lt;knob&gt; to start up the associated appliance, it contains one argument.<br>
+'turned-off(&lt;knob&gt;)': the result of turning &lt;handle&gt; or &lt;knob&gt; to shut down the associated appliance, it contains one argument.<br>
+], <br>
+<br>
+The above subgoals include argument types. Please use the objects in the respective types:<br>
+``<br>
+{  '&lt;appliance&gt;': [],<br>
+   '&lt;button&gt;': [],<br>
+   '&lt;condiment&gt;': ['salt shaker', 'pepper shaker'],<br>
+   '&lt;door&gt;': ['cabinet right door', 'cabinet left door', 'fridge door'],<br>
+   '&lt;drawer&gt;': [],<br>
+   '&lt;food&gt;': ['chicken leg'],<br>
+   '&lt;joint&gt;': [  'cabinet right door',<br>
+                 'cabinet left door',<br>
+                 'stove knob on the right',<br>
+                 'stove knob on the left',<br>
+                 'faucet handle',<br>
+                 'fridge door'],<br>
+   '&lt;knob&gt;': [  'stove knob on the right',<br>
+                'stove knob on the left',<br>
+                'faucet handle'],<br>
+   '&lt;movable&gt;': [  'chicken leg',<br>
+                   'pot lid',<br>
+                   'pot body',<br>
+                   'salt shaker',<br>
+                   'pepper shaker'],<br>
+   '&lt;region&gt;': ['pot body'],<br>
+   '&lt;space&gt;': ['cabinet', 'pot body'],<br>
+   '&lt;surface&gt;': [  'stove on the left',<br>
+                   'stove on the right',<br>
+                   'counter top on the left',<br>
+                   'counter top on the right',<br>
+                   'pot body',<br>
+                   'pot bottom',<br>
+                   'kitchen sink',<br>
+                   'fridge shelf'],<br>
+   '&lt;utensil&gt;': []}<br>
+''<br>
+<br>
+Return the subgoals in a list and give no explanation. <br>
+Make sure the sub-goals are in the same order as the steps in the intermediate goals. <br>
+Note that the arguments shouldn't include robot parts, e.g., 'arm', 'gripper'.<br>
+If a new object not mentioned in the set of objects is used as arguments, please name it with the same as the object that constitutes it the most and exists in the given list of objects.<br>
+If one intermediate goal cannot be translated into a sub-goal, skip that step.<br>
+</div></div><div class="message from-agent1" id="message-4"><p>[<br>
+    opened-door(fridge door),<br>
+    picked(chicken leg),<br>
+    closed-door(fridge door),<br>
+    opened-door(cabinet left door),<br>
+    picked(salt shaker),<br>
+    closed-door(cabinet left door),<br>
+    opened-door(cabinet right door),<br>
+    picked(pepper shaker),<br>
+    closed-door(cabinet right door),<br>
+    on(chicken leg, pot body),<br>
+    sprinkled-to(salt shaker, pot body),<br>
+    sprinkled-to(pepper shaker, pot body),<br>
+    opened-door(pot lid),<br>
+    on(pot lid, pot body),<br>
+    turned-on(stove knob on the left)<br>
+]<br></p></div><div class="message from-agent2" id="message-5"><p class="username">Post-processed:</p>
+<p>['openedjoint', 'fridge door']<br>['picked', 'chicken leg']<br>['closedjoint', 'fridge door']<br>['openedjoint', 'cabinet left door']<br>['picked', 'salt shaker']<br>['closedjoint', 'cabinet left door']<br>['openedjoint', 'cabinet right door']<br>['picked', 'pepper shaker']<br>['closedjoint', 'cabinet right door']<br>['on', 'chicken leg', 'pot bottom']<br>['sprinkledto', 'salt shaker', 'pot body']<br>['sprinkledto', 'pepper shaker', 'pot body']<br>['holding', 'pot lid']<br>['on', 'pot lid', 'pot body']<br>['openedjoint', 'stove knob on the left']</p></div><div class="message from-agent2" id="message-6"><img src="chats/problem1_modelA_modeA_robotA_envA/query_11.png" alt="Chat Image" style="max-width: 60%; border-radius: 8px;"><p>Plan a short sequence of intermediate goals that accomplishes the following goal: <br>
+``make chicken soup''. <br>
+<br>
+Respond with detailed but simple instructions in English. Each line must consists of only one intermediate goal, <br>
+where objects mentioned must be items from the following list:<br>
+</p>
+<span class="expand-toggle-1">[expand]</span>
+<div class="hidden-text-1">
+['chicken leg', 'cabinet right door', 'cabinet left door', 'cabinet', 'stove on the left', 'stove on the right', 'counter top on the left', 'counter top on the right', 'pot lid', 'pot body', 'pot bottom', 'stove knob on the right', 'stove knob on the left', 'kitchen sink', 'faucet handle', 'fridge', 'fridge door', 'fridge shelf', 'salt shaker', 'pepper shaker'].<br>
+<br>
+Currently, you can see the following objects:<br>
+``the pot lid is on the stove on the left,<br>
+the pot body is on the counter top on the right,<br>
+the faucet is on the basin's faucet platform,<br>
+the chicken leg is in the pot body,<br>
+cabinet right door is fully closed,<br>
+cabinet left door is fully closed,<br>
+fridge door is fully closed,<br>
+stove knob on the right is turned off,<br>
+stove knob on the left is turned off,<br>
+faucet handle is turned off''<br>
+<br>
+</div>
+<p>
+You have already taken the following actions written in a formal language:<br>
+1. ['picked', 'chicken leg']<br>
+2. ['closedjoint', 'fridge door']<br>
+3. ['picked', 'salt shaker']<br>
+4. ['closedjoint', 'cabinet left door']<br>
+5. ['picked', 'pepper shaker']<br>
+6. ['closedjoint', 'cabinet right door']<br>
+7. ['sprinkledto', 'salt shaker', 'pot body']<br>
+8. ['sprinkledto', 'pepper shaker', 'pot body']<br>
+Currently, the robot is holding some objects. The right hand is holding pepper shaker. The left hand is holding salt shaker. <br>
+<br>
+You just failed at planning for subgoals ['holding', 'pot lid']. So please do not list this subgoals as the first subgoals to achieve in your answer..<br>
+<br>
+You are a mobile robot with two arms. You must obey the following commonsense rules:<br>
+</p>
+<span class="expand-toggle-2">[expand]</span>
+<div class="hidden-text-2">
+1. You must have at least one empty hand before you can pick up an object or open or close a joint.<br>
+2. When you sprinkle or pour something into a container, there must not be objects placed on top of the container.<br>
+3. You can only take actions on objects that you can see. <br>
+4. If you cannot see an object, it may be behind a door or inside drawer.<br>
+5. If you cannot see the inside of a space, you must open its door or drawer before you can pick objects from it or place objects inside it. <br>
+<br>
+The accompanying image is a collage of two images depicting a scene with a robot in a kitchen. <br>
+There are different sets of annotations of object names with object bounding boxes drawn on the images.<br>
+</div></div><div class="message from-agent1" id="message-7"><p>1. Open the cabinet left door.<br>
+2. Pick up the pot lid from the cabinet.<br>
+3. Close the cabinet left door.<br>
+4. Place the pot lid on the pot body on the counter top on the right.<br>
+5. Turn on the stove knob on the left.<br>
+6. Wait for the chicken leg in the pot body to cook.</p></div><div class="message from-agent2" id="message-8"><p>Translate the above intermediate goals into a formal language defined by the following subgoals.<br>
+</p>
+<span class="expand-toggle-1">[expand]</span>
+<div class="hidden-text-1">
+subgoals = <br>
+[<br>
+'picked(&lt;movable&gt;)': the result of picking up &lt;movable&gt;, it contains one argument.<br>
+'in(&lt;movable&gt;, &lt;space&gt;)': the result of picking up &lt;movable&gt; and placing it inside &lt;space&gt;, it contains two arguments.<br>
+'on(&lt;movable&gt;, &lt;surface&gt;)': the result of picking up &lt;movable&gt; and placing it on &lt;surface&gt;, it contains two arguments.<br>
+'sprinkled-to(&lt;movable&gt;, &lt;region&gt;)': the result of picking up &lt;movable&gt; and sprinkling it into &lt;region&gt;, it contains two arguments.<br>
+'stirred(&lt;region&gt;, &lt;movable&gt;)': the result of picking up &lt;movable&gt; to stir &lt;region&gt;, it contains two arguments.<br>
+'chopped(&lt;movable&gt;, &lt;utensil&gt;)': the result of picking up &lt;utensil&gt; to chop &lt;movable&gt;, it contains two arguments.<br>
+'opened-door(&lt;door&gt;)': the result of opening &lt;door&gt;, it contains one argument.<br>
+'closed-door(&lt;door&gt;)': the result of closing &lt;door&gt;, it contains one argument.<br>
+'opened-drawer(&lt;drawer&gt;)': the result of closing &lt;drawer&gt;, it contains one argument.<br>
+'closed-drawer(&lt;drawer&gt;)': the result of closing &lt;drawer&gt;, it contains one argument.<br>
+'pressed(&lt;button&gt;)': the result of pressing &lt;button&gt;, it contains one argument.<br>
+'turned-on(&lt;knob&gt;)': the result of turning &lt;handle&gt; or &lt;knob&gt; to start up the associated appliance, it contains one argument.<br>
+'turned-off(&lt;knob&gt;)': the result of turning &lt;handle&gt; or &lt;knob&gt; to shut down the associated appliance, it contains one argument.<br>
+], <br>
+<br>
+The above subgoals include argument types. Please use the objects in the respective types:<br>
+``<br>
+{  '&lt;appliance&gt;': [],<br>
+   '&lt;button&gt;': [],<br>
+   '&lt;condiment&gt;': ['salt shaker', 'pepper shaker'],<br>
+   '&lt;door&gt;': ['cabinet right door', 'cabinet left door', 'fridge door'],<br>
+   '&lt;drawer&gt;': [],<br>
+   '&lt;food&gt;': ['chicken leg'],<br>
+   '&lt;joint&gt;': [  'cabinet right door',<br>
+                 'cabinet left door',<br>
+                 'stove knob on the right',<br>
+                 'stove knob on the left',<br>
+                 'faucet handle',<br>
+                 'fridge door'],<br>
+   '&lt;knob&gt;': [  'stove knob on the right',<br>
+                'stove knob on the left',<br>
+                'faucet handle'],<br>
+   '&lt;movable&gt;': [  'chicken leg',<br>
+                   'pot lid',<br>
+                   'pot body',<br>
+                   'salt shaker',<br>
+                   'pepper shaker'],<br>
+   '&lt;region&gt;': ['pot body'],<br>
+   '&lt;space&gt;': ['cabinet', 'pot body'],<br>
+   '&lt;surface&gt;': [  'stove on the left',<br>
+                   'stove on the right',<br>
+                   'counter top on the left',<br>
+                   'counter top on the right',<br>
+                   'pot body',<br>
+                   'pot bottom',<br>
+                   'kitchen sink',<br>
+                   'fridge shelf'],<br>
+   '&lt;utensil&gt;': []}<br>
+''<br>
+<br>
+Return the subgoals in a list and give no explanation. <br>
+Make sure the sub-goals are in the same order as the steps in the intermediate goals. <br>
+Note that the arguments shouldn't include robot parts, e.g., 'arm', 'gripper'.<br>
+If a new object not mentioned in the set of objects is used as arguments, please name it with the same as the object that constitutes it the most and exists in the given list of objects.<br>
+If one intermediate goal cannot be translated into a sub-goal, skip that step.<br>
+</div></div><div class="message from-agent1" id="message-9"><p>1. opened-door(cabinet left door)<br>
+2. picked(pot lid)<br>
+3. closed-door(cabinet left door)<br>
+4. on(pot lid, pot body)<br>
+5. turned-on(stove knob on the left)</p></div><div class="message from-agent2" id="message-10"><p class="username">Post-processed:</p>
+<p>['openedjoint', 'cabinet left door']<br>['picked', 'pot lid']<br>['closedjoint', 'cabinet left door']<br>['on', 'pot lid', 'pot body']<br>['openedjoint', 'stove knob on the left']</p></div><div class="message from-agent2" id="message-11"><img src="chats/problem1_modelA_modeA_robotA_envA/planning_tree.png" alt="Chat Image" style="max-width: 100%; border-radius: 8px;"></div></div>
+          </div>
+        </div>
+      </div>
+</section>
+
+
+<section class="hero is-light" style="z-index:-10">
+  <div class="container">
+    <div class="hero-body" style="padding-bottom: 2em;">
+
+       <div class="container">
+         <h2 class="subtitle has-text-centered">
+         We evaluate VLM-TAMP on kitchen tasks where a robot must accomplish cooking goals<br> that require performing 30-50 actions in sequence and interacting with up to 21 objects.
+         </h2>
+       </div>
+
+    </div>
+  </div>
+</section>
+
+
+<section class="hero" style="z-index:-10">
+  <div class="container">
+    <div class="hero-body" style="padding-bottom: 2em;">
+
+       <div class="container">
+
+         <h2 class="subtitle has-text-centered">
+         <span class="text-vlm">VLM-TAMP</span> substantially outperforms <span class="text-baselines">baselines</span> that rigidly and independently execute VLM-generated action sequences,  <br> both in terms of success rates (50 to 100% versus 0%) and average task completion percentage (72 to 100% versus 15 to 45%). 
+         </h2>
+
+          <img src="media/figures/result_1.png" class="full-image" style="width:65%; padding-top: 0.5em;padding-bottom: 2em;" alt="result_1">
+
+         <h2 class="subtitle has-text-centered">
+         Reprompting VLM visibly benefit <span class="text-vlm">VLM-TAMP</span>, increasing task success increasing by 47 to 55% on the harder problems,<br> while it doesn't help the <span class="text-baselines">baseline</span> which predicts actions
+         </h2>
+
+          <img src="media/figures/result_2.png" class="full-image" style="width:65%; padding-top: 0.5em;" alt="result_2">
+
+       </div>
+
+    </div>
+  </div>
+</section>
+
+
+<section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-two-thirds">
+          <h3 class="title is-3 has-text-centered">Video</h3>
+          <div class="publication-video">
+            <!-- https://www.youtube.com/watch?v=9T1z9KQ8wwA&ab_channel=ZhutianYang -->
+            <iframe src="https://www.youtube.com/embed/9T1z9KQ8wwA?rel=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen=""></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-widescreen content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@misc{yang2024guidinglonghorizontaskmotion,
+      title={Guiding Long-Horizon Task and Motion Planning with Vision Language Models}, 
+      author={Zhutian Yang and Caelan Garrett and Dieter Fox and Tomás Lozano-Pérez and Leslie Pack Kaelbling},
+      year={2024},
+      eprint={2410.02193},
+      archivePrefix={arXiv},
+      primaryClass={cs.RO},
+      url={https://arxiv.org/abs/2410.02193}, 
+} </code></pre>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column">
+        <div class="content has-text-centered">
+          <p>
+            Website template borrowed from <a href="https://github.com/nerfies/nerfies.github.io">NeRFies</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<!-- <script>
+includeHTML();
+</script> -->
+
+<script src="./static/js/chat.js"></script>
+
+
+</body></html>

@@ -19,26 +19,16 @@
 
     <div>
         <div id="title-container">
-            <p id="paper-title">Towards Embodiment Scaling Laws in Robot Locomotion</p>
+            <p id="paper-title">ManiTaskGen: A Comprehensive Task Generator for
+Benchmarking and Improving Vision-Language
+Agents on Embodied Decision-Making</p>
 
             <div id="authors">
                 <div>
-                    <a class="author" href="https://albertboai.com/" target="_blank">Bo Ai<sup>1*</sup></a>
-                    <a class="author" href="https://liudai.notion.site/" target="_blank">Liu Dai<sup>1*</sup></a>
+                    <a class="author" href="https://liudai.notion.site/" target="_blank">Liu Dai1*</sup></a>
+                    <a class="author" href="https://liudai.notion.site/" target="_blank">Haina Wang<sup>1*</sup></a>
                     <a class="author" href="https://www.ias.informatik.tu-darmstadt.de/Team/NicoBohlinger"
-                        target="_blank">Nico Bohlinger<sup>4*</sup></a>
-                    <a class="author" href="https://www.linkedin.com/in/dichen-li-32a478347/" target="_blank">Dichen
-                        Li<sup>1*</sup></a>
-                </div>
-                <div>
-                    <a class="author" href="https://cseweb.ucsd.edu/~t3mu/" target="_blank">Tongzhou Mu<sup>1</sup></a>
-                    <a class="author" href="https://zhanxinwu.com/" target="_blank">Zhanxin Wu<sup>3</sup></a>
-                    <a class="author" href="https://scholar.google.com/citations?user=VW03_RgAAAAJ&hl=en"
-                        target="_blank">K. Fay<sup>1</sup></a>
-                    <a class="author" href="https://hichristensen.com/" target="_blank">Henrik I.
-                        Christensen<sup>1</sup></a>
-                    <a class="author" href="https://www.ias.informatik.tu-darmstadt.de/Team/JanPeters"
-                        target="_blank">Jan Peters<sup>4,5</sup></a>
+                        target="_blank">Weikang Wan<sup>1</sup></a>
                     <a class="author" href="https://cseweb.ucsd.edu/~haosu/" target="_blank">Hao Su<sup>1,2</sup></a>
                 </div>
             </div>
@@ -47,302 +37,329 @@
                 <p class="affiliation"><sup>*</sup>Equal contribution</p>
                 <p class="affiliation"><sup>1</sup>University of California San Diego, USA</p>
                 <p class="affiliation"><sup>2</sup>Hillbot Inc, USA</p>
-                <p class="affiliation"><sup>3</sup>Cornell University, USA</p>
-                <p class="affiliation"><sup>4</sup>Technical University of Darmstadt, Germany</p>
-                <p class="affiliation"><sup>5</sup>German Research Center for AI (DFKI); Robotics Institute Germany;
-                    hessian.AI, Germany</p>
             </div>
         </div>
 
         <div id="social-buttons">
-            <a href="https://arxiv.org/pdf/2505.05753.pdf" target="_blank" class="social-button">
+            <a href="https://arxiv.org/abs/2505.20726" target="_blank" class="social-button">
                 <i class="fa fa-file-pdf"></i>
                 <p>Paper</p>
             </a>
             <a href="https://youtu.be/62OBDgrQYw4" target="_blank" class="social-button">
                 <i class="fa fa-youtube"></i>
-                <p>Talk</p>
+                <p>[TALK (coming soon)]</p>
             </a>
         </div>
 
         <div id="tldr-container">
-            <p id="tldr-text"><span id="tldr-first">TLDR:</span> We train a single locomotion policy on ~1,000
-                procedurally generated robots and uncover <strong>embodiment scaling laws</strong> that enable generalization to
-                diverse embodiments in simulation and the real world. </p>
+            <p id="tldr-text"><span id="tldr-first">TLDR:</span> We presents a universal task generation framework for arbitrary scenes, facilitating
+both benchmarking and improvement of embodied decision-making agents. </p>
         </div>
 
+        
+
+
+        
         <div class="section-container">
+            <p class="section-header">Demo</p>
+            <p class="section-text">
+                This work proposes universal system for generating comprehensive and diverse mobile manipulation tasks for arbitrary scenes.
+            </p>
+            <video class="demo-video" controls>
+                <source src="images/demo.mp4" type="video/mp4">
+            </video>
+        </div>
+
+       <div class="section-container">
             <p class="section-header">Overview</p>
+            
+            <!-- 插入图片 -->
+            <div class="section-image-container">
+                <img src="images/ManiTaskGen_framework.png" alt="Task Generation Framework Overview" class="section-image">
+            </div>
+
             <p class="section-text">
-                This work investigates <span class="highlighted-text">embodiment scaling laws</span> in robotics,
-                hypothesizing that training a single control policy on a larger number of diverse robot embodiments
-                improves its ability to generalize to unseen ones.
+               ManiTaskGen is a universal system that generates a comprehensive set of feasible mobile manipulation tasks given arbitrary scene. These tasks facilitate automatic benchmarking and the improvement of embodied decision-making agents.
             </p>
-            <iframe class="youtube-iframe" src="https://www.youtube.com/embed/62OBDgrQYw4?si=MzmJyBurg8L5SZwT" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </div>
 
-        <div class="section-container">
-            <p class="section-header">Generating 1000 Robots</p>
-            <p class="section-text">
-                To study the effects of embodiment scaling, we procedurally generate <span
-                    class="highlighted-text">GENBOT-1K</span> dataset consisting if approximately <span
-                    class="highlighted-text">1,000 varied robot embodiments</span>, including humanoids, quadrupeds, and
-                hexapods, with different geometry, topology, and kinematics.
-            </p>
-            <div class="section-gif-header-container">
-                <p class="section-gif-header"></p>
-                <p class="section-gif-header">Variations:</p>
-                <p class="section-gif-header">Topology</p>
-                <p class="section-gif-header">Geometry</p>
-                <p class="section-gif-header">Kinematics</p>
-            </div>
-            <div class="section-gif-container">
-                <p class="gif-text-morphology-class">Humanoid</p>
-                <img src="images/spinning_humanoid_0.gif" alt="Spinning humanoid 0" class="section-gif">
-                <img src="images/spinning_humanoid_1.gif" alt="Spinning humanoid 1" class="section-gif">
-                <img src="images/spinning_humanoid_2.gif" alt="Spinning humanoid 2" class="section-gif">
-                <img src="images/spinning_humanoid_3.gif" alt="Spinning humanoid 3" class="section-gif">
-            </div>
-            <div class="section-gif-container">
-                <p class="gif-text-morphology-class">Quadruped</p>
-                <img src="images/spinning_quadruped_0.gif" alt="Spinning quadruped 0" class="section-gif">
-                <img src="images/spinning_quadruped_1.gif" alt="Spinning quadruped 1" class="section-gif">
-                <img src="images/spinning_quadruped_2.gif" alt="Spinning quadruped 2" class="section-gif">
-                <img src="images/spinning_quadruped_3.gif" alt="Spinning quadruped 3" class="section-gif">
-            </div>
-            <div class="section-gif-container">
-                <p class="gif-text-morphology-class">Hexapod</p>
-                <img src="images/spinning_hexapod_0.gif" alt="Spinning hexapod 0" class="section-gif">
-                <img src="images/spinning_hexapod_1.gif" alt="Spinning hexapod 1" class="section-gif">
-                <img src="images/spinning_hexapod_2.gif" alt="Spinning hexapod 2" class="section-gif">
-                <img src="images/spinning_hexapod_3.gif" alt="Spinning hexapod 3" class="section-gif">
-            </div>
-        </div>
+        
 
         <div class="section-container">
-            <p class="section-header">Embodiment Scaling Laws</p>
+            <p class="section-header">Action space and Test flow</p>
             <p class="section-text">
-                Training generalist locomotion policies on subsets of GENBOT-1K shows that <span
-                    class="highlighted-text">generalization to unseen robots improves steadily as the number of training
-                    embodiments increases</span>.
-            </p>
-            <img src="images/scaling_curve.png" alt="Scaling curve" class="section-image">
-        </div>
-
-        <div class="section-container">
-            <p class="section-header">Real-world Deployment</p>
-            <p class="section-text">
-                We confirm our results, by zero-shot transferring the learned unified policy to the <span
-                    class="highlighted-text">Unitree Go2 quadruped</span> and the <span class="highlighted-text">Unitree
-                    H1 humanoid</span> robots in the real world.
+                We define a discrete, abstracted action space that the VLM-based agent selects from at each timestep. The agent is equipped with abstracted navigation (go_to, change_view), grasping (pick) and placing (show_receptacle, place) skills.
             </p>
             <div class="section-deployment-video-container">
-                <p class="section-deployment-video-container-header">Unitree H1</p>
+                <p class="section-deployment-video-container-header">Agents' Action Space</p>
                 <div class="section-deployment-video-row">
                     <div class="deployment-video-block">
-                        <p class="deployment-video-header">Forward</p>
-                        <video muted autoplay loop class="deployment-video">
-                            <source src="videos/h1_1_1.mp4" type="video/mp4">
-                        </video>
+                        <p class="deployment-video-header">Navigate</p>
+                        <img src="images/navigate_gif.gif" class="fixed-size-gif">
                     </div>
                     <div class="deployment-video-block">
-                        <p class="deployment-video-header">Forward</p>
-                        <video muted autoplay loop class="deployment-video">
-                            <source src="videos/h1_1_3.mp4" type="video/mp4">
-                        </video>
+                        <p class="deployment-video-header">Change View</p>
+                        <img src="images/change_view_gif.gif"  class="fixed-size-gif">
                     </div>
-                    <div class="deployment-video-block">
-                        <p class="deployment-video-header">Forward</p>
-                        <video muted autoplay loop class="deployment-video">
-                            <source src="videos/h1_1_2.mp4" type="video/mp4">
-                        </video>
-                    </div>
+                    
                 </div>
                 <div class="section-deployment-video-row">
                     <div class="deployment-video-block">
-                        <p class="deployment-video-header">Backward</p>
-                        <video muted autoplay loop class="deployment-video">
-                            <source src="videos/h1_2_1.mp4" type="video/mp4">
-                        </video>
+                        <p class="deployment-video-header">Show Receptacle</p>
+                        <img src="images/show_receptacle_gif.gif" class="fixed-size-gif">
                     </div>
                     <div class="deployment-video-block">
-                        <p class="deployment-video-header">Backward</p>
-                        <video muted autoplay loop class="deployment-video">
-                            <source src="videos/h1_2_3.mp4" type="video/mp4">
-                        </video>
+                        <p class="deployment-video-header">Pick</p>
+                        <img src="images/pick_gif.gif"  class="fixed-size-gif">
                     </div>
-                    <div class="deployment-video-block">
-                        <p class="deployment-video-header">Backward</p>
-                        <video muted autoplay loop class="deployment-video">
-                            <source src="videos/h1_2_2.mp4" type="video/mp4">
-                        </video>
-                    </div>
+                    
                 </div>
                 <div class="section-deployment-video-row">
                     <div class="deployment-video-block">
-                        <p class="deployment-video-header">Sideward</p>
-                        <video muted autoplay loop class="deployment-video">
-                            <source src="videos/h1_3_1.mp4" type="video/mp4">
-                        </video>
+                        <p class="deployment-video-header">Place R</p>
+                        <img src="images/place_r_gif.gif" class="fixed-size-gif">
                     </div>
                     <div class="deployment-video-block">
-                        <p class="deployment-video-header">Sideward</p>
-                        <video muted autoplay loop class="deployment-video">
-                            <source src="videos/h1_3_3.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                    <div class="deployment-video-block">
-                        <p class="deployment-video-header">Sideward</p>
-                        <video muted autoplay loop class="deployment-video">
-                            <source src="videos/h1_3_2.mp4" type="video/mp4">
-                        </video>
+                        <p class="deployment-video-header">Place S</p>
+                        <img src="images/place_s_gif.gif" class="fixed-size-gif">
                     </div>
                 </div>
-                <div class="section-deployment-video-row">
-                    <div class="deployment-video-block">
-                        <p class="deployment-video-header">Pushes</p>
-                        <video muted autoplay loop class="deployment-video">
-                            <source src="videos/h1_4_1.mp4" type="video/mp4">
-                        </video>
+                <!-- <p class="section-deployment-video-container-header">Test Flow</p> -->
+            </div>
+            <p class="section-text">
+               At each timestep, the agent receives multimodal observations from the system, including rendered images (with tags for objects or, after "show_receptacle", for receptacles), and text information. The system executes the given actions, updates the environment, and provides the next observation. An episode terminates when the agent executes "CALL_END" or a preset timestep limit is reached. After termination, the benchmark automatically evaluates the episode, following the criteria illustrated in the next section.
+            </p>
+            <div class="section-image-container">
+                <img src="images/testflow.png" alt="Task Generation Framework Overview" class="section-image">
+            </div>
+
+         
+        </div>
+
+        <div class="section-container">
+            <p class="section-header">Experiments</p>
+            <p class="section-sub-header">Task Difficulty and Evaluation Criteria</p>
+            
+            <div class="task-levels">
+
+                <h3 class="subsection-header">Task Difficulty</h3>
+
+                <p>We classify ManiTaskGen tasks into four difficulty levels, with increasing structual and perceptual complexity. The evaluation criteria for each task level are as follows:</p>
+                
+                <details class="expandable">
+                    <summary>[expand]</summary>
+                        <div class="expanded-text-content">
+
+                            <p class="level-item"><strong>Level 1 tasks:</strong> Single-step pick-and-place tasks involving unique target objects.</p>
+                    
+                            <p class="level-item"><strong>Level 2 tasks:</strong> Single-step pick-and-place tasks involving non-unique target objects, which requires disambiguation.</p>
+                            
+                            <p class="level-item"><strong>Level 3 tasks:</strong> Multi-step pick-and-place tasks involving non-unique target objects, formed by chaining level 1 or 2 tasks with logical connector THEN.</p>
+                            
+                            <p class="level-item"><strong>Level 4 tasks:</strong> Outcome-based tasks, which require the agent to achieve a specific arrangement or configuration of objects, such as cascading or stacking.</p>
+                    
+                        </div>
+                </details>
+
+                <h3 class="subsection-header">Evaluation Criteria</h3>
+
+                <p>For each testing episode of process-based tasks, we conclude following evaluation metrics:</p>
+                
+
+                <details class="expandable">
+                    <summary>[expand]</summary>
+                        <div class="expanded-text-content">
+
+                        <p class="metric-item"><strong>(1) Success Rate (SR):</strong> Whether the task was completed successfully.</p>
+                
+                        <p class="metric-item"><strong>(2) Intermediate Points (IP):</strong> A fine-grained measurement of task completion progress.</p>
+                        
+                        <p>For Level 1 & 2 tasks, a successful episode should include the following four sub-steps, each contributing 25 points of IP:</p>
+                        
+                        <ul class="ip-steps">
+                            <li>Navigate to the correct starting location</li>
+                            <li>Grasp the correct object</li>
+                            <li>Navigate to the correct destination with the right object</li>
+                            <li>Place the right object in the correct place</li>
+                        </ul>
+                        
+                        <p>IP for Level 3 tasks is computed by averaging points from the two sequential sub-tasks.</p>
+                        
                     </div>
-                    <div class="deployment-video-block">
-                        <p class="deployment-video-header">Pushes</p>
-                        <video muted autoplay loop class="deployment-video">
-                            <source src="videos/h1_4_3.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                    <div class="deployment-video-block">
-                        <p class="deployment-video-header">Pushes</p>
-                        <video muted autoplay loop class="deployment-video">
-                            <source src="videos/h1_4_2.mp4" type="video/mp4">
-                        </video>
-                    </div>
+                </details>
+
+                
+                
+                <p> Benchmarking Level 4 tasks is left for future work.</p>
+           
+            </div>
+                
+                
+                
+                
+          
+
+           <div class="section-image-container">
+                <img src="images/task_sample.png" alt="Examples of different level tasks" class="section-image">
+            </div>
+
+        <div class="demo-container">
+            <div class="task-panel">
+                <h3>Examples</h3>
+                <div class="task-item selected">
+                <p>Move kitchenware_white_paper_towel_holder between lighting_blue_base_table_lamp and lighting_blue_base_table_lamp</p>
+                <p class="task-description">(Success)</p>
                 </div>
             </div>
-            <div class="section-deployment-video-container">
-                <p class="section-deployment-video-container-header">Unitree Go2</p>
-                <div class="section-deployment-video-row">
-                    <div class="deployment-video-block">
-                        <p class="deployment-video-header">100% joint limits on every knee</p>
-                        <video muted autoplay loop class="deployment-video">
-                            <source src="videos/go2_1_1.mp4" type="video/mp4">
-                        </video>
+            
+            <div class="chat-interface">
+                <div class="control-panel">
+                <div class="control-group">
+                    <label>VLM:</label>
+                    <select class="control-select">
+                    <option selected>gpt-4o-mini</option>
+                    </select>
+                </div>
+                
+                <div class="control-group">
+                    <label>Query Mode:</label>
+                    <select class="control-select">
+                    <option selected>Subgoals</option>
+                    </select>
+                </div>
+                
+                <div class="control-group">
+                    <label>Robot:</label>
+                    <select class="control-select">
+                    <option selected>Dual-Arm PR2</option>
+                    </select>
+                </div>
+                
+                <div class="control-group">
+                    <label>Init:</label>
+                    <select class="control-select">
+                    <option selected>Open Spaces</option>
+                    </select>
+                </div>
+                </div>
+                
+                <div class="chat-content">
+                <div class="chat-message robot-message">
+                    <div class="message-image">
+                    <img src="images/steps/success_episode_picture/step0.PNG" alt="Kitchen scene with robot">
                     </div>
-                    <div class="deployment-video-block">
-                        <p class="deployment-video-header">60% joint limits on right rear knee</p>
-                        <video muted autoplay loop class="deployment-video">
-                            <source src="videos/go2_1_3.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                    <div class="deployment-video-block">
-                        <p class="deployment-video-header">20% joint limits on right rear knee</p>
-                        <video muted autoplay loop class="deployment-video">
-                            <source src="videos/go2_1_2.mp4" type="video/mp4">
-                        </video>
+                    <div class="message-text">
+                    
+                    <p>You are a household assistant robot equipped with a vision system and manipulation capabilities. You need to complete a task in a 3D environment, mainly involving moving, picking up, and placing objects. Your goal is to move an object from one place to another correctly according to instructions. Please strictly follow the given Action Space for operations.</p>
+                    
+                    <p>At the beginning of each task, you will be informed of a specific task to complete. Throughout the task execution, you will transition between multiple states and have access to a set of possible actions (action space).</p>
+
+                    <details class="expandable">
+                        <summary>[expand]</summary>
+                        <div class="expanded-content">
+                        <p>['chicken leg', 'cabinet right door', 'cabinet left door', 'cabinet', 'stove on the left', 'stove on the right', 'counter top on the left', 'counter top on the right', 'pot lid', 'pot body', 'pot bottom', 'stove knob on the right', 'stove knob on the left', 'kitchen sink', 'faucet handle', 'fridge', 'fridge door', 'fridge shelf', 'salt shaker', 'pepper shaker'].</p>
+                        
+                        <p>Currently, you can see the following objects:<br>
+                        "the pot lid is on the stove on the left,<br>
+                        the pot body is on the counter top on the right,<br>
+                        the chicken leg is on the fridge shelf,<br>
+                        the salt shaker is in the cabinet,<br>
+                        the pepper shaker is in the cabinet,<br>
+                        cabinet right door is partially open,<br>
+                        cabinet left door is partially open,<br>
+                        fridge door is partially open,<br>
+                        stove knob on the right is turned off,<br>
+                        stove knob on the left is turned off,<br>
+                        faucet handle is turned off"</p>
+                        </div>
+                    </details>
+                    
+                    <p>You have already taken the following actions written in a formal language:</p>
+                    <ol>
+                        <li>['picked', 'chicken leg']</li>
+                        <li>['closedjoint', 'fridge door']</li>
+                        <li>['picked', 'salt shaker']</li>
+                        <li>['closedjoint', 'cabinet left door']</li>
+                        <li>['picked', 'pepper shaker']</li>
+                        <li>['closedjoint', 'cabinet right door']</li>
+                        <li>['sprinkledto', 'salt shaker', 'pot body']</li>
+                        <li>['sprinkledto', 'pepper shaker', 'pot body']</li>
+                    </ol>
+                    
+                    <p>Currently, the robot is holding some objects. The right hand is holding pepper shaker. The left hand is holding salt shaker.</p>
+                    
+                    <p>You just failed at planning for subgoals ['holding', 'pot lid']. So please do not list this subgoals as the first subgoals to achieve in your answer.</p>
+                    
+                    <p>You are a mobile robot with two arms. You must obey the following commonsense rules:</p>
+                    
+                    <details class="expandable">
+                        <summary>[expand]</summary>
+                        <div class="expanded-content">
+                        <ol>
+                            <li>You must have at least one empty hand before you can pick up an object or open or close a joint.</li>
+                            <li>When you sprinkle or pour something into a container, there must not be objects placed on top of the container.</li>
+                            <li>You can only take actions on objects that you can see.</li>
+                            <li>If you cannot see an object, it may be behind a door or inside drawer.</li>
+                            <li>If you cannot see the inside of a space, you must open its door or drawer before you can pick objects from it or place objects inside it.</li>
+                        </ol>
+                        </div>
+                    </details>
                     </div>
                 </div>
-                <div class="section-deployment-video-row">
-                    <div class="deployment-video-block">
-                        <p class="deployment-video-header">60% joint limits on front left knee</p>
-                        <video muted autoplay loop class="deployment-video">
-                            <source src="videos/go2_2_1.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                    <div class="deployment-video-block">
-                        <p class="deployment-video-header">40% joint limits on front left knee</p>
-                        <video muted autoplay loop class="deployment-video">
-                            <source src="videos/go2_2_2.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                    <div class="deployment-video-block">
-                        <p class="deployment-video-header">20% joint limits on front left knee</p>
-                        <video muted autoplay loop class="deployment-video">
-                            <source src="videos/go2_2_3.mp4" type="video/mp4">
-                        </video>
+                
+                <div class="chat-message human-message">
+                    <div class="message-text">
+                    <ol>
+                        <li>Open the cabinet left door.</li>
+                        <li>Pick up the pot lid from the cabinet.</li>
+                        <li>Close the cabinet left door.</li>
+                        <li>Place the pot lid on the pot body on the counter top on the right.</li>
+                        <li>Turn on the stove knob on the left.</li>
+                        <li>Wait for the chicken leg in the pot body to cook.</li>
+                    </ol>
                     </div>
                 </div>
-                <div class="section-deployment-video-row">
-                    <div class="deployment-video-block">
-                        <p class="deployment-video-header">Gravel</p>
-                        <video muted autoplay loop class="deployment-video">
-                            <source src="videos/go2_3_1.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                    <div class="deployment-video-block">
-                        <p class="deployment-video-header">Grass</p>
-                        <video muted autoplay loop class="deployment-video">
-                            <source src="videos/go2_3_2.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                    <div class="deployment-video-block">
-                        <p class="deployment-video-header">Grass</p>
-                        <video muted autoplay loop class="deployment-video">
-                            <source src="videos/go2_3_3.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                </div>
-                <div class="section-deployment-video-row">
-                    <div class="deployment-video-block">
-                        <p class="deployment-video-header">Pavement</p>
-                        <video muted autoplay loop class="deployment-video">
-                            <source src="videos/go2_4_1.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                    <div class="deployment-video-block">
-                        <p class="deployment-video-header">Pavement</p>
-                        <video muted autoplay loop class="deployment-video">
-                            <source src="videos/go2_4_2.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                    <div class="deployment-video-block">
-                        <p class="deployment-video-header">Cobblestone</p>
-                        <video muted autoplay loop class="deployment-video">
-                            <source src="videos/go2_4_3.mp4" type="video/mp4">
-                        </video>
-                    </div>
                 </div>
             </div>
+            </div>
+
+        
+            <div class="section-container">
+            <p class="section-header">Results</p>
+            <p class="section-text">
+                We observe that all models achieve a low average SR (under 30%), significantly below human-level performance. Performance generally decreases with increasing task difficulty. Longer tasks (Level 3) lead to significantly lower performance compared to single-step tasks, highlighting the substantial challenge posed by the generated tasks.
+            </p>
+            <img src="images/result_table.png" alt="result_table" class="section-image">
+            <img src="images/sankey_diagram.png" alt="result_table" class="section-image">
         </div>
 
         <div class="section-container">
             <p class="section-header">Acknowledgments</p>
             <p class="section-text">
-                This research is funded by the NSF AI-Center TILOS, the Hillbot Embodied AI Fund, the National Science
-                Centre Poland (Weave programme UMO-2021/43/I/ST6/02711), and by the German Science Foundation (DFG)
-                (grant number PE 2315/17-1).<br>
-                Co-author Hao Su is the CTO for Hillbot and receives income. The terms of this arrangement have been
-                reviewed and approved by the University of California, San Diego, in accordance with its conflict of
-                interest policies.<br>
-                We thank the German Research Center for AI (DFKI), Research Department: Systems AI for Robot Learning,
-                for lending the Unitree Go2 and Unitree H1 robots.<br>
-                Finally, we thank <a class="ack-author" href="https://www.linkedin.com/in/olegkaidanov/"
-                    target="_blank">Oleg Kaidanov</a> (DFKI, TU Darmstadt) for his continuous help with the real-world
-                robot deployment.
             </p>
         </div>
 
         <div class="section-container">
             <p class="section-header">Citation</p>
             <div class="citation-container">
-                <pre><code>@misc{ai2025embodimentscalinglaws,
-    title={Towards Embodiment Scaling Laws in Robot Locomotion},
-    author={Bo Ai and Liu Dai and Nico Bohlinger and Dichen Li and Tongzhou Mu and Zhanxin Wu and K. Fay and Henrik I. Christensen and Jan Peters and Hao Su},
-    year={2025},
-    eprint={2505.05753},
-    archivePrefix={arXiv},
-    primaryClass={cs.RO},
-    url={https://arxiv.org/abs/2505.05753}, 
-}</code></pre>
+                <pre><code>@misc{dai2025manitaskgencomprehensivetaskgenerator,
+                    title={ManiTaskGen: A Comprehensive Task Generator for Benchmarking and Improving Vision-Language Agents on Embodied Decision-Making}, 
+                    author={Liu Dai and Haina Wang and Weikang Wan and Hao Su},
+                    year={2025},
+                    eprint={2505.20726},
+                    archivePrefix={arXiv},
+                    primaryClass={cs.RO},
+                    url={https://arxiv.org/abs/2505.20726}, 
+                }</code></pre>
             </div>
         </div>
 
         <div id="website-inspiration">
             <p>This website was inspired by <a href="https://kzakka.com/robopianist/">Kevin Zakka's</a> and <a
-                    href="https://brentyi.github.io/tilted/">Brent Yi's</a> and builds on <a
-                    href="https://nico-bohlinger.github.io/one_policy_to_run_them_all_website/">Nico Bohlinger's</a>.
+                    href="https://brentyi.github.io/tilted/">Brent Yi's</a> and <a href="embodiment-scaling-laws.github.io/">  </a> Nico Bohlinger's</a>.
             </p>
         </div>
     </div>
 </body>
 
-</html>
+</html> 

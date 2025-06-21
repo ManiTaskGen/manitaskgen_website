@@ -1,0 +1,147 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Generation for Embodied Agents</title>
+    <link rel="stylesheet" href="custom.css">
+</head>
+<body>
+    <div id="tldr-container">
+        <p id="tldr-text"><span id="tldr-first">TLDR:</span> We presents a universal task generation framework for arbitrary scenes, facilitating both benchmarking and improvement of embodied decision-making agents.</p>
+    </div>
+
+    <div class="demo-container">
+      <div class="task-panel">
+        <h3>Examples</h3>
+        <div class="task-item selected">
+          <p>Make Chicken Soup</p>
+          <p class="task-description">(with TAMP solutions and reprompting)</p>
+        </div>
+      </div>
+      
+      <div class="chat-interface">
+        <div class="control-panel">
+          <div class="control-group">
+            <label>VLM:</label>
+            <select class="control-select">
+              <option selected>gpt-4o-mini</option>
+            </select>
+          </div>
+          
+          <div class="control-group">
+            <label>Query Mode:</label>
+            <select class="control-select">
+              <option selected>Subgoals</option>
+            </select>
+          </div>
+          
+          <div class="control-group">
+            <label>Robot:</label>
+            <select class="control-select">
+              <option selected>Dual-Arm PR2</option>
+            </select>
+          </div>
+          
+          <div class="control-group">
+            <label>Init:</label>
+            <select class="control-select">
+              <option selected>Open Spaces</option>
+            </select>
+          </div>
+        </div>
+        
+        <div class="chat-content">
+          <div class="chat-message robot-message">
+            <div class="message-image">
+              <img src="images/kitchen-scene.jpg" alt="Kitchen scene with robot">
+            </div>
+            <div class="message-text">
+              <p>Plan a short sequence of intermediate goals that accomplishes the following goal:</p>
+              <p>"make chicken soup".</p>
+              
+              <p>Respond with detailed but simple instructions in English. Each line must consists of only one intermediate goal,
+              where objects mentioned must be items from the following list:</p>
+              
+              <details class="expandable">
+                <summary>[expand]</summary>
+                <div class="expanded-content">
+                  <p>['chicken leg', 'cabinet right door', 'cabinet left door', 'cabinet', 'stove on the left', 'stove on the right', 'counter top on the left', 'counter top on the right', 'pot lid', 'pot body', 'pot bottom', 'stove knob on the right', 'stove knob on the left', 'kitchen sink', 'faucet handle', 'fridge', 'fridge door', 'fridge shelf', 'salt shaker', 'pepper shaker'].</p>
+                  
+                  <p>Currently, you can see the following objects:<br>
+                  "the pot lid is on the stove on the left,<br>
+                  the pot body is on the counter top on the right,<br>
+                  the chicken leg is on the fridge shelf,<br>
+                  the salt shaker is in the cabinet,<br>
+                  the pepper shaker is in the cabinet,<br>
+                  cabinet right door is partially open,<br>
+                  cabinet left door is partially open,<br>
+                  fridge door is partially open,<br>
+                  stove knob on the right is turned off,<br>
+                  stove knob on the left is turned off,<br>
+                  faucet handle is turned off"</p>
+                </div>
+              </details>
+              
+              <p>You have already taken the following actions written in a formal language:</p>
+              <ol>
+                <li>['picked', 'chicken leg']</li>
+                <li>['closedjoint', 'fridge door']</li>
+                <li>['picked', 'salt shaker']</li>
+                <li>['closedjoint', 'cabinet left door']</li>
+                <li>['picked', 'pepper shaker']</li>
+                <li>['closedjoint', 'cabinet right door']</li>
+                <li>['sprinkledto', 'salt shaker', 'pot body']</li>
+                <li>['sprinkledto', 'pepper shaker', 'pot body']</li>
+              </ol>
+              
+              <p>Currently, the robot is holding some objects. The right hand is holding pepper shaker. The left hand is holding salt shaker.</p>
+              
+              <p>You just failed at planning for subgoals ['holding', 'pot lid']. So please do not list this subgoals as the first subgoals to achieve in your answer.</p>
+              
+              <p>You are a mobile robot with two arms. You must obey the following commonsense rules:</p>
+              
+              <details class="expandable">
+                <summary>[expand]</summary>
+                <div class="expanded-content">
+                  <ol>
+                    <li>You must have at least one empty hand before you can pick up an object or open or close a joint.</li>
+                    <li>When you sprinkle or pour something into a container, there must not be objects placed on top of the container.</li>
+                    <li>You can only take actions on objects that you can see.</li>
+                    <li>If you cannot see an object, it may be behind a door or inside drawer.</li>
+                    <li>If you cannot see the inside of a space, you must open its door or drawer before you can pick objects from it or place objects inside it.</li>
+                  </ol>
+                </div>
+              </details>
+            </div>
+          </div>
+          
+          <div class="chat-message human-message">
+            <div class="message-text">
+              <ol>
+                <li>Open the cabinet left door.</li>
+                <li>Pick up the pot lid from the cabinet.</li>
+                <li>Close the cabinet left door.</li>
+                <li>Place the pot lid on the pot body on the counter top on the right.</li>
+                <li>Turn on the stove knob on the left.</li>
+                <li>Wait for the chicken leg in the pot body to cook.</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-container">
+        <p class="section-header">Overview</p>
+        <p class="section-text">
+            This work proposes universal system for generating comprehensive and diverse mobile manipulation tasks for arbitrary scenes.
+            [TODO: update youtube-iframe with demo video]
+        </p>
+        <iframe class="youtube-iframe" src="https://www.youtube.com/embed/62OBDgrQYw4?si=MzmJyBurg8L5SZwT" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
