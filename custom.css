@@ -255,10 +255,14 @@ p {
 
 .demo-video {
     width: 100%;
-    height: 400px;
+    max-width: 800px;
+    height: auto;
+    display: block;
+    margin: 20px auto;
     border-radius: 8px;
-    background-color: #000;
-    object-fit: contain;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    object-fit: cover;  /* 保持完整视频内容 */
+    background: #f8f9fa;  /* 浅色背景替代黑色 */
 }
 
 /* custom.css */
