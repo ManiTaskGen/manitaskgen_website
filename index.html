@@ -70,7 +70,7 @@ both benchmarking and improvement of embodied decision-making agents. </p>
 
         
         <div class="section-container">
-            <p class="section-header">Comprehensive Task Generation </p>
+            <p class="section-header" style="text-align: center;">Comprehensive Task Generation </p>
             <p class="section-text">
                 The first part of this project is a new methodology for generating comprehensive sets of process- and outcome-based tasks.
             </p>
@@ -81,7 +81,7 @@ both benchmarking and improvement of embodied decision-making agents. </p>
         </div>
 
         <div class="section-container">
-            <p class="section-header">Receptacle-Aware 3D Scene Graph Construction</p>
+            <p class="section-sub-header" style="text-align: center;">Receptacle-Aware 3D Scene Graph Construction</p>
             <p class="section-text">
                 We build a scene graph 𝒮 that captures the spatial and functional relationships between objects and their receptacles. To support retrieving multiple refined receptacles, the merging-receptacle technique is also applied.
                 This method spells the generated tasks covering more objects and locations.
@@ -93,7 +93,7 @@ both benchmarking and improvement of embodied decision-making agents. </p>
         </div>
 
         <div class="section-container">
-            <p class="section-header">Generating Tasks</p>
+            <p class="section-sub-header" style="text-align: center;">Generating Tasks</p>
             <p class="section-text">
                 For process-based tasks, we generate them through the use of our scene graph and some patterns.
                 For outcome-based tasks, we employ a hybrid approach combining template-based generation and VLM-based filtering.
@@ -108,6 +108,8 @@ both benchmarking and improvement of embodied decision-making agents. </p>
 
         <div class="section-container">
             <p class="section-header">Benchmarking VLM Agents</p>
+
+            The second part of this project is benchmarking VLM agents using the generated tasks.
             <video class="demo-video" controls>
                 <source src="videos/demo.mp4" type="video/mp4">
             </video>
@@ -118,7 +120,7 @@ both benchmarking and improvement of embodied decision-making agents. </p>
         
 
         <div class="section-container">
-            <p class="section-header">Action space and Test flow</p>
+           <p class="section-sub-header" style="text-align: center;">Action space and Test flow</p>
             <p class="section-text">
                 We define a discrete, abstracted action space that the VLM-based agent selects from at each timestep. The agent is equipped with abstracted navigation (go_to, change_view), grasping (pick) and placing (show_receptacle, place) skills.
             </p>
@@ -415,11 +417,7 @@ both benchmarking and improvement of embodied decision-making agents. </p>
             </div>
             </div>
 
-         
-        </div>
-
-        <div class="section-container">
-            <p class="section-header">Results</p>
+            <p class="section-sub-header" style="text-align: center;">Benchmarking Results</p>
             
 
             
@@ -428,17 +426,142 @@ both benchmarking and improvement of embodied decision-making agents. </p>
                
                 <p class="section-text">
                     We observe that all models achieve a low average SR (under 30%), significantly below human-level performance. Performance generally decreases with increasing task difficulty. Longer tasks (Level 3) lead to significantly lower performance compared to single-step tasks, highlighting the substantial challenge posed by the generated tasks.
+                    
+                    Specifically, we design a self-reflection model that processes the evaluation results of each episode to generate a verbal summary. This summary is then stored in a long-term memory and used as part of the input for the agent when attempting the task in future episodes
+                    
                 </p>
                 <img src="images/result_table.png" alt="result_table" class="section-image">
                 <img src="images/sankey_diagram.png" alt="result_table" class="section-image">
             </div>
+        </div>
+
+            
 
         <div class="section-container">
             <p class="section-header">Reflection</p>
 
-            使用黑色demo框插入错误记忆
+            ManiTaskGen tasks can not only be used for benchmarking VLMs, but also for optimizing VLM-based agents. we adopt an inference-time RFT policy to enhance agent capabilities inspired by Reflexion and ReAct.
 
-            然后ppt多配一张图描述
+            
+        <div class="demo-container">
+            <div class="task-panel">
+                <h3>Examples</h3>
+                <div class="task-item selected">
+                <p>Move kitchenware_white_paper_towel_holder between lighting_blue_base_table_lamp and lighting_blue_base_table_lamp</p>
+                <p class="task-description">(Success)</p>
+                </div>
+            </div>
+            
+            <div class="chat-interface">
+                <div class="control-panel">
+                <div class="control-group">
+                    <label>VLM:</label>
+                    <select class="control-select">
+                    <option selected>gpt-4o-mini</option>
+                    </select>
+                </div>
+                
+                <div class="control-group">
+                    <label>Query Mode:</label>
+                    <select class="control-select">
+                    <option selected>Subgoals</option>
+                    </select>
+                </div>
+                
+                <div class="control-group">
+                    <label>Robot:</label>
+                    <select class="control-select">
+                    <option selected>Dual-Arm PR2</option>
+                    </select>
+                </div>
+                
+                <div class="control-group">
+                    <label>Init:</label>
+                    <select class="control-select">
+                    <option selected>Open Spaces</option>
+                    </select>
+                </div>
+                </div>
+                
+                <div class="chat-content">
+                <div class="chat-message robot-message">
+                    <div class="message-image">
+                    <img src="images/steps/success_episode_picture/step0.PNG" alt="Kitchen scene with robot">
+                    </div>
+                    <div class="message-text">
+                    
+                    <p>You are a household assistant robot equipped with a vision system and manipulation capabilities. You need to complete a task in a 3D environment, mainly involving moving, picking up, and placing objects. Your goal is to move an object from one place to another correctly according to instructions. Please strictly follow the given Action Space for operations.</p>
+                    
+                    <p>At the beginning of each task, you will be informed of a specific task to complete. Throughout the task execution, you will transition between multiple states and have access to a set of possible actions (action space).</p>
+
+                    <details class="expandable">
+                        <summary>[expand]</summary>
+                        <div class="expanded-content">
+                        <p>['chicken leg', 'cabinet right door', 'cabinet left door', 'cabinet', 'stove on the left', 'stove on the right', 'counter top on the left', 'counter top on the right', 'pot lid', 'pot body', 'pot bottom', 'stove knob on the right', 'stove knob on the left', 'kitchen sink', 'faucet handle', 'fridge', 'fridge door', 'fridge shelf', 'salt shaker', 'pepper shaker'].</p>
+                        
+                        <p>Currently, you can see the following objects:<br>
+                        "the pot lid is on the stove on the left,<br>
+                        the pot body is on the counter top on the right,<br>
+                        the chicken leg is on the fridge shelf,<br>
+                        the salt shaker is in the cabinet,<br>
+                        the pepper shaker is in the cabinet,<br>
+                        cabinet right door is partially open,<br>
+                        cabinet left door is partially open,<br>
+                        fridge door is partially open,<br>
+                        stove knob on the right is turned off,<br>
+                        stove knob on the left is turned off,<br>
+                        faucet handle is turned off"</p>
+                        </div>
+                    </details>
+                    
+                    <p>You have already taken the following actions written in a formal language:</p>
+                    <ol>
+                        <li>['picked', 'chicken leg']</li>
+                        <li>['closedjoint', 'fridge door']</li>
+                        <li>['picked', 'salt shaker']</li>
+                        <li>['closedjoint', 'cabinet left door']</li>
+                        <li>['picked', 'pepper shaker']</li>
+                        <li>['closedjoint', 'cabinet right door']</li>
+                        <li>['sprinkledto', 'salt shaker', 'pot body']</li>
+                        <li>['sprinkledto', 'pepper shaker', 'pot body']</li>
+                    </ol>
+                    
+                    <p>Currently, the robot is holding some objects. The right hand is holding pepper shaker. The left hand is holding salt shaker.</p>
+                    
+                    <p>You just failed at planning for subgoals ['holding', 'pot lid']. So please do not list this subgoals as the first subgoals to achieve in your answer.</p>
+                    
+                    <p>You are a mobile robot with two arms. You must obey the following commonsense rules:</p>
+                    
+                    <details class="expandable">
+                        <summary>[expand]</summary>
+                        <div class="expanded-content">
+                        <ol>
+                            <li>You must have at least one empty hand before you can pick up an object or open or close a joint.</li>
+                            <li>When you sprinkle or pour something into a container, there must not be objects placed on top of the container.</li>
+                            <li>You can only take actions on objects that you can see.</li>
+                            <li>If you cannot see an object, it may be behind a door or inside drawer.</li>
+                            <li>If you cannot see the inside of a space, you must open its door or drawer before you can pick objects from it or place objects inside it.</li>
+                        </ol>
+                        </div>
+                    </details>
+                    </div>
+                </div>
+                
+                <div class="chat-message human-message">
+                    <div class="message-text">
+                    <ol>
+                        <li>Open the cabinet left door.</li>
+                        <li>Pick up the pot lid from the cabinet.</li>
+                        <li>Close the cabinet left door.</li>
+                        <li>Place the pot lid on the pot body on the counter top on the right.</li>
+                        <li>Turn on the stove knob on the left.</li>
+                        <li>Wait for the chicken leg in the pot body to cook.</li>
+                    </ol>
+                    </div>
+                </div>
+                </div>
+            </div>
+            </div>
 
 
             <p class="section-text">
