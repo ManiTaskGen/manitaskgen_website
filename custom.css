@@ -386,6 +386,14 @@ p {
     border-radius: 3px;
 }
 
+
+
+/* 或者如果你想要固定尺寸 */
+.control-video {
+    width: 432px;          /* 固定宽度 */
+    height: 243px;         /* 固定高度 */
+    object-fit: cover;     /* 填充整个区域，可能会裁剪一部分内容 */
+}
 /* 聊天内容 */
 .chat-content {
     flex-grow: 1;
