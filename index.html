@@ -55,20 +55,7 @@ both benchmarking and improvement of embodied decision-making agents. </p>
         </div>
 
         
-
-
-        
         <div class="section-container">
-            <p class="section-header">Demo</p>
-            <p class="section-text">
-                This work proposes universal system for generating comprehensive and diverse mobile manipulation tasks for arbitrary scenes.
-            </p>
-            <video class="demo-video" controls>
-                <source src="videos/demo.mp4" type="video/mp4">
-            </video>
-        </div>
-
-       <div class="section-container">
             <p class="section-header">Overview</p>
             
             <!-- 插入图片 -->
@@ -82,48 +69,205 @@ both benchmarking and improvement of embodied decision-making agents. </p>
         </div>
 
         
+        <div class="section-container">
+            <p class="section-header">Comprehensive Task Generation </p>
+            <p class="section-text">
+                The first part of this project is a new methodology for generating comprehensive sets of process- and outcome-based tasks.
+            </p>
+             <video class="demo-video" controls>
+                <source src="videos/task_gen.mp4" type="video/mp4">
+            </video>
+            
+        </div>
+
+        <div class="section-container">
+            <p class="section-header">Receptacle-Aware 3D Scene Graph Construction</p>
+            <p class="section-text">
+                We build a scene graph 𝒮 that captures the spatial and functional relationships between objects and their receptacles. To support retrieving multiple refined receptacles, the merging-receptacle technique is also applied.
+                This method spells the generated tasks covering more objects and locations.
+            </p>
+            <div class="section-image-container">
+                <img src="images/receptacles.png" alt="Task Generation Framework Overview" class="section-image">
+                <img src="images/heatmap.png" alt="Task Generation Framework Overview" class="section-image">
+            </div>
+        </div>
+
+        <div class="section-container">
+            <p class="section-header">Generating Tasks</p>
+            <p class="section-text">
+                For process-based tasks, we generate them through the use of our scene graph and some patterns.
+                For outcome-based tasks, we employ a hybrid approach combining template-based generation and VLM-based filtering.
+            </p>
+            <div class="section-image-container">
+                <img src="images/atomic_tasks.png" alt="Task Generation Framework Overview" class="section-image">
+                <img src="images/outcome_based_tasks.png" alt="Task Generation Framework Overview" class="section-image">
+            </div>
+        </div>
+
+        
+
+        <div class="section-container">
+            <p class="section-header">Benchmarking VLM Agents</p>
+            <video class="demo-video" controls>
+                <source src="videos/demo.mp4" type="video/mp4">
+            </video>
+        </div>
+
+       
+
+        
 
         <div class="section-container">
             <p class="section-header">Action space and Test flow</p>
             <p class="section-text">
                 We define a discrete, abstracted action space that the VLM-based agent selects from at each timestep. The agent is equipped with abstracted navigation (go_to, change_view), grasping (pick) and placing (show_receptacle, place) skills.
             </p>
+
             <div class="section-deployment-video-container">
-                <p class="section-deployment-video-container-header">Agents' Action Space</p>
+            <p class="section-deployment-video-container-header">Agents' Action Space</p>
+                
                 <div class="section-deployment-video-row">
                     <div class="deployment-video-block">
-                        <p class="deployment-video-header">Navigate</p>
-                        <img src="images/navigate_gif.gif" class="fixed-size-gif">
+                        <p class="deployment-video-header">Goto</p>
+                        <div class="video-container">
+                            <video class="control-video">
+                                <source src="videos/goto_mp4.mp4" type="video/mp4">
+                                Your browser does not support HTML5 video
+                            </video>
+                            <div class="video-controls">
+                                <button class="play-button">play</button>
+                                <div class="speed-control">
+                                    <label>speed:</label>
+                                    <select class="speed-selector">
+                                        <option value="0.5">0.5×</option>
+                                        <option value="0.75">0.75×</option>
+                                        <option value="1" selected>1.0×</option>
+                                        <option value="1.5">1.5×</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+                    
                     <div class="deployment-video-block">
                         <p class="deployment-video-header">Change View</p>
-                        <img src="images/change_view_gif.gif"  class="fixed-size-gif">
+                        <div class="video-container">
+                            <video class="control-video">
+                                <source src="videos/change_view_mp4.mp4" type="video/mp4">
+                                Your browser does not support HTML5 video
+                            </video>
+                            <div class="video-controls">
+                                <button class="play-button">Play</button>
+                                <div class="speed-control">
+                                    <label>Speed:</label>
+                                    <select class="speed-selector">
+                                        <option value="0.5">0.5×</option>
+                                        <option value="0.75">0.75×</option>
+                                        <option value="1" selected>1.0×</option>
+                                        <option value="1.5">1.5×</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    
                 </div>
+                
                 <div class="section-deployment-video-row">
-                    <div class="deployment-video-block">
-                        <p class="deployment-video-header">Show Receptacle</p>
-                        <img src="images/show_receptacle_gif.gif" class="fixed-size-gif">
-                    </div>
                     <div class="deployment-video-block">
                         <p class="deployment-video-header">Pick</p>
-                        <img src="images/pick_gif.gif"  class="fixed-size-gif">
+                        <div class="video-container">
+                            <video class="control-video">
+                                <source src="videos/pick_mp4.mp4" type="video/mp4">
+                                Your browser does not support HTML5 video
+                            </video>
+                            <div class="video-controls">
+                                <button class="play-button">play</button>
+                                <div class="speed-control">
+                                    <label>speed:</label>
+                                    <select class="speed-selector">
+                                        <option value="0.5">0.5×</option>
+                                        <option value="0.75">0.75×</option>
+                                        <option value="1" selected>1.0×</option>
+                                        <option value="1.5">1.5×</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     
+                    <div class="deployment-video-block">
+                        <p class="deployment-video-header">Show Receptacle</p>
+                        <div class="video-container">
+                            <video class="control-video">
+                                <source src="videos/show_receptacle_mp4.mp4" type="video/mp4">
+                                Your browser does not support HTML5 video
+                            </video>
+                            <div class="video-controls">
+                                <button class="play-button">Play</button>
+                                <div class="speed-control">
+                                    <label>Speed:</label>
+                                    <select class="speed-selector">
+                                        <option value="0.5">0.5×</option>
+                                        <option value="0.75">0.75×</option>
+                                        <option value="1" selected>1.0×</option>
+                                        <option value="1.5">1.5×</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+
                 <div class="section-deployment-video-row">
                     <div class="deployment-video-block">
-                        <p class="deployment-video-header">Place R</p>
-                        <img src="images/place_r_gif.gif" class="fixed-size-gif">
+                        <p class="deployment-video-header">Place_r</p>
+                        <div class="video-container">
+                            <video class="control-video">
+                                <source src="videos/place_r_mp4.mp4" type="video/mp4">
+                                Your browser does not support HTML5 video
+                            </video>
+                            <div class="video-controls">
+                                <button class="play-button">play</button>
+                                <div class="speed-control">
+                                    <label>speed:</label>
+                                    <select class="speed-selector">
+                                        <option value="0.5">0.5×</option>
+                                        <option value="0.75">0.75×</option>
+                                        <option value="1" selected>1.0×</option>
+                                        <option value="1.5">1.5×</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+                    
                     <div class="deployment-video-block">
-                        <p class="deployment-video-header">Place S</p>
-                        <img src="images/place_s_gif.gif" class="fixed-size-gif">
+                        <p class="deployment-video-header">Place_s</p>
+                        <div class="video-container">
+                            <video class="control-video">
+                                <source src="videos/place_s_mp4.mp4" type="video/mp4">
+                                Your browser does not support HTML5 video
+                            </video>
+                            <div class="video-controls">
+                                <button class="play-button">Play</button>
+                                <div class="speed-control">
+                                    <label>Speed:</label>
+                                    <select class="speed-selector">
+                                        <option value="0.5">0.5×</option>
+                                        <option value="0.75">0.75×</option>
+                                        <option value="1" selected>1.0×</option>
+                                        <option value="1.5">1.5×</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <!-- <p class="section-deployment-video-container-header">Test Flow</p> -->
+               
+
+
             </div>
+
             <p class="section-text">
                At each timestep, the agent receives multimodal observations from the system, including rendered images (with tags for objects or, after "show_receptacle", for receptacles), and text information. The system executes the given actions, updates the environment, and provides the next observation. An episode terminates when the agent executes "CALL_END" or a preset timestep limit is reached. After termination, the benchmark automatically evaluates the episode, following the criteria illustrated in the next section.
             </p>
@@ -131,76 +275,26 @@ both benchmarking and improvement of embodied decision-making agents. </p>
                 <img src="images/testflow.png" alt="Task Generation Framework Overview" class="section-image">
             </div>
 
-         
-        </div>
 
-        <div class="section-container">
-            <p class="section-header">Experiments</p>
-            <p class="section-sub-header">Task Difficulty and Evaluation Criteria</p>
+            <p class="section-sub-header" style="text-align: center;">Task Difficulty and Evaluation Criteria</p>
             
-            <div class="task-levels">
+            <div class="section-image-container">
+                <img src="images/task_judgement.png" alt="task_judgement_method" class="section-image">
+            </div>
 
-                <h3 class="subsection-header">Task Difficulty</h3>
 
-                <p>We classify ManiTaskGen tasks into four difficulty levels, with increasing structual and perceptual complexity. The evaluation criteria for each task level are as follows:</p>
-                
-                <details class="expandable">
-                    <summary>[expand]</summary>
-                        <div class="expanded-text-content">
-
-                            <p class="level-item"><strong>Level 1 tasks:</strong> Single-step pick-and-place tasks involving unique target objects.</p>
-                    
-                            <p class="level-item"><strong>Level 2 tasks:</strong> Single-step pick-and-place tasks involving non-unique target objects, which requires disambiguation.</p>
-                            
-                            <p class="level-item"><strong>Level 3 tasks:</strong> Multi-step pick-and-place tasks involving non-unique target objects, formed by chaining level 1 or 2 tasks with logical connector THEN.</p>
-                            
-                            <p class="level-item"><strong>Level 4 tasks:</strong> Outcome-based tasks, which require the agent to achieve a specific arrangement or configuration of objects, such as cascading or stacking.</p>
-                    
-                        </div>
-                </details>
-
-                <h3 class="subsection-header">Evaluation Criteria</h3>
-
-                <p>For each testing episode of process-based tasks, we conclude following evaluation metrics:</p>
-                
-
-                <details class="expandable">
-                    <summary>[expand]</summary>
-                        <div class="expanded-text-content">
-
-                        <p class="metric-item"><strong>(1) Success Rate (SR):</strong> Whether the task was completed successfully.</p>
-                
-                        <p class="metric-item"><strong>(2) Intermediate Points (IP):</strong> A fine-grained measurement of task completion progress.</p>
-                        
-                        <p>For Level 1 & 2 tasks, a successful episode should include the following four sub-steps, each contributing 25 points of IP:</p>
-                        
-                        <ul class="ip-steps">
-                            <li>Navigate to the correct starting location</li>
-                            <li>Grasp the correct object</li>
-                            <li>Navigate to the correct destination with the right object</li>
-                            <li>Place the right object in the correct place</li>
-                        </ul>
-                        
-                        <p>IP for Level 3 tasks is computed by averaging points from the two sequential sub-tasks.</p>
-                        
-                    </div>
-                </details>
-
-                
-                
-                <p> Benchmarking Level 4 tasks is left for future work.</p>
+            <div class="task-levels" sylte="text-align: left;">
+                              
+                <p> Benchmarking Level 4 tasks and its Evaluation criteria is left for future work.</p>
+                <p> Some Real Episode is displayed below: </p>
            
             </div>
                 
                 
                 
-                
-          
+        
 
-           <div class="section-image-container">
-                <img src="images/task_sample.png" alt="Examples of different level tasks" class="section-image">
-            </div>
-
+        
         <div class="demo-container">
             <div class="task-panel">
                 <h3>Examples</h3>
@@ -321,14 +415,34 @@ both benchmarking and improvement of embodied decision-making agents. </p>
             </div>
             </div>
 
+         
+        </div>
+
+        <div class="section-container">
+            <p class="section-header">Results</p>
+            
+
+            
         
             <div class="section-container">
-            <p class="section-header">Results</p>
+               
+                <p class="section-text">
+                    We observe that all models achieve a low average SR (under 30%), significantly below human-level performance. Performance generally decreases with increasing task difficulty. Longer tasks (Level 3) lead to significantly lower performance compared to single-step tasks, highlighting the substantial challenge posed by the generated tasks.
+                </p>
+                <img src="images/result_table.png" alt="result_table" class="section-image">
+                <img src="images/sankey_diagram.png" alt="result_table" class="section-image">
+            </div>
+
+        <div class="section-container">
+            <p class="section-header">Reflection</p>
+
+            使用黑色demo框插入错误记忆
+
+            然后ppt多配一张图描述
+
+
             <p class="section-text">
-                We observe that all models achieve a low average SR (under 30%), significantly below human-level performance. Performance generally decreases with increasing task difficulty. Longer tasks (Level 3) lead to significantly lower performance compared to single-step tasks, highlighting the substantial challenge posed by the generated tasks.
             </p>
-            <img src="images/result_table.png" alt="result_table" class="section-image">
-            <img src="images/sankey_diagram.png" alt="result_table" class="section-image">
         </div>
 
         <div class="section-container">
@@ -359,5 +473,50 @@ both benchmarking and improvement of embodied decision-making agents. </p>
         </div>
     </div>
 </body>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // 获取所有视频元素
+    const videos = document.querySelectorAll('.control-video');
+    
+    videos.forEach(video => {
+        const container = video.closest('.video-container');
+        const playButton = container.querySelector('.play-button');
+        const speedSelector = container.querySelector('.speed-selector');
+        
+        // 播放/暂停功能
+        playButton.addEventListener('click', function() {
+            if (video.paused || video.ended) {
+                video.play();
+                playButton.textContent = 'Pause';
+            } else {
+                video.pause();
+                playButton.textContent = 'Play';
+            }
+        });
+        
+        // 速度控制功能
+        speedSelector.addEventListener('change', function() {
+            video.playbackRate = parseFloat(this.value);
+        });
+        
+        // 视频结束后重置按钮
+        video.addEventListener('ended', function() {
+            playButton.textContent = 'Play';
+        });
+        
+        // 点击视频本身也能播放/暂停
+        video.addEventListener('click', function() {
+            if (video.paused || video.ended) {
+                video.play();
+                playButton.textContent = 'Pause';
+            } else {
+                video.pause();
+                playButton.textContent = 'Play';
+            }
+        });
+    });
+});
+</script>
 
 </html> 
