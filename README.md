@@ -1,1 +1,1 @@
-# embodiment-scaling-laws.github.io
+# manitaskgen.github.io
