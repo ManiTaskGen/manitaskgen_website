@@ -279,10 +279,10 @@ both benchmarking and improvement of embodied decision-making agents. </p>
 
             <p class="section-sub-header" style="text-align: center;">Task Difficulty and Evaluation Criteria</p>
             
-
+            <p class="section-text"></p>
                  To better evaluate the VLMs, we divide the task into 3 levels and define the evaluation criteria for each level.</p>
                  Some real Episode is displayed below: </p>
-            
+              </p>
 
             <div class="section-image-container">
                 <img src="images/task_judgement.png" alt="task_judgement_method" class="section-image">
@@ -1020,7 +1020,7 @@ both benchmarking and improvement of embodied decision-making agents. </p>
 
                     <div class="chat-message robot-message">
                         <div class="message-image">
-                            <img src="images/episodes/gemini_failed_0/failed_step1.png" alt="Step 5 - At dining table">
+                            <img src="images/episodes/gemini_failed_0/failed_step5.png" alt="Step 5 - At dining table">
                         </div>
                         <div class="message-text">
                             <p><strong>The object has been placed successfully. You can now call end if you think you've finished the task correctly, or can also pick up the object again if you think the placement is not correct.</strong></p>
@@ -1081,8 +1081,6 @@ both benchmarking and improvement of embodied decision-making agents. </p>
                
                 <p class="section-text">
                     We observe that all models achieve a low average SR (under 30%), significantly below human-level performance. Performance generally decreases with increasing task difficulty. Longer tasks (Level 3) lead to significantly lower performance compared to single-step tasks, highlighting the substantial challenge posed by the generated tasks.
-                    
-                    Specifically, we design a self-reflection model that processes the evaluation results of each episode to generate a verbal summary. This summary is then stored in a long-term memory and used as part of the input for the agent when attempting the task in future episodes
                     
                 </p>
                 <img src="images/result_table.png" alt="result_table" class="section-image">
